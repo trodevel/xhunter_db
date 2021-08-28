@@ -1,1 +1,1 @@
-CREATE DATABASE company;
+CREATE DATABASE xhunter;
