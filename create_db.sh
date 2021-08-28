@@ -2,8 +2,8 @@
 
 echo "Creating new DB"
 
-scripts="create_db.sql" \
-"create_table_search_keywords.sql"
+scripts="create_db.sql \
+create_table_search_keywords.sql"
 
 for s in $scripts
 do
