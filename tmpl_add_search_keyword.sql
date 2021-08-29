@@ -1,2 +1,2 @@
 USE xhunter;
-insert into search_keywords ( keyword ) values ( '%KEYWORD%' );
+insert into search_keywords ( chat_id, keyword ) values ( '%CHAT_ID%', '%KEYWORD%' );
