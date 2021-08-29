@@ -1,0 +1,3 @@
+USE xhunter;
+
+SHOW TABLES;
