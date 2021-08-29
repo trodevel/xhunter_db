@@ -3,7 +3,10 @@
 echo "Creating new DB"
 
 scripts="create_db.sql \
-create_table_search_keywords.sql"
+create_table_cvs.sql \
+create_table_map_keyword_to_cv.sql \
+create_table_search_keywords.sql \
+"
 
 for s in $scripts
 do
