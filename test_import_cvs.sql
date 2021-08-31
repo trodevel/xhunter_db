@@ -1,7 +1,7 @@
 USE xhunter;
 
 LOAD DATA LOCAL INFILE
-'cvs_java.csv'
+'x2.csv'
 INTO TABLE cvs
 CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
