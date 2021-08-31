@@ -22,4 +22,6 @@ KEYWORD=$2
 
 query=$( cat tmpl_import_cvs.sql | sed "s/%FILENAME%/$FILENAME/g" | sed "s/%KEYWORD%/$KEYWORD/g" )
 
+set -o noglob
 echo $query | ./exec_query.sh
+set +o noglob
