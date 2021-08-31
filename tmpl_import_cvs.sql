@@ -1,5 +1,7 @@
 USE xhunter;
 
+SET autocommit = OFF;
+
 START TRANSACTION;
 
 CREATE TABLE cvs_temp(
