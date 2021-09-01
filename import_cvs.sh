@@ -27,4 +27,4 @@ echo "$query" | ./exec_query.sh
 res=$?
 set +o noglob
 
-[[ $res -ne 0 ]] && exit $res
+exit $res
