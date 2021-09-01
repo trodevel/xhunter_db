@@ -24,4 +24,6 @@ WHERE NOT EXISTS
       t2.id = t1.id
 );
 
+INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
+
 COMMIT;
