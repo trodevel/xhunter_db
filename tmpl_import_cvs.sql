@@ -24,7 +24,13 @@ LINES TERMINATED BY '\n'
 ( id, hash, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 );
 
-INSERT INTO cvs SELECT * FROM cvs_temp;
+INSERT INTO cvs SELECT * FROM cvs_temp t1
+WHERE NOT EXISTS
+(
+      SELECT 1
+      FROM cvs t2 WHERE
+      t2.id = t1.id
+);
 
 DROP TABLE cvs_temp;
 
