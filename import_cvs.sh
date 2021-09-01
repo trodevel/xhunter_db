@@ -24,4 +24,7 @@ query=$( cat tmpl_import_cvs.sql | sed "s/%FILENAME%/$FILENAME/g" | sed "s/%KEYW
 
 set -o noglob
 echo "$query" | ./exec_query.sh
+res=$?
 set +o noglob
+
+[[ $res -ne 0 ]] && exit $res
