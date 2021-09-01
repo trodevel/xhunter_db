@@ -14,8 +14,21 @@ emoji_pattern = re.compile(
     "]+", flags=re.UNICODE
 )
 
+if len( sys.argv ) == 1:
+    print( "Usage: remove_emojis.py <input_file> [<output_file>]" )
+    quit()
+
 filename = sys.argv[1]
+
+if not filename:
+    print( "FATAL: filename is not given" )
+    quit()
 
 text = open( filename, "r" ).read()
 
-print( emoji_pattern.sub(r'', text))
+res = emoji_pattern.sub( r'', text )
+
+if len( sys.argv ) == 3:
+    output_filename = sys.argv[2]
+else:
+    print( res )
