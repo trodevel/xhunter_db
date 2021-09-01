@@ -22,4 +22,4 @@ KEYWORD=$2
 
 query=$( cat tmpl_add_search_keyword.sql | sed "s/%CHAT_ID%/$CHAT_ID/g" | sed "s/%KEYWORD%/$KEYWORD/g" )
 
-echo $query | ./exec_query.sh
+echo "$query" | ./exec_query.sh
