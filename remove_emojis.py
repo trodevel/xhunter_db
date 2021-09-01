@@ -30,5 +30,7 @@ res = emoji_pattern.sub( r'', text )
 
 if len( sys.argv ) == 3:
     output_filename = sys.argv[2]
+    f = open( output_filename, "w" )
+    f.write( res )
 else:
     print( res )
