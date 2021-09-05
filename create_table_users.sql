@@ -1,7 +1,7 @@
 USE xhunter;
 
 CREATE TABLE users(
-id int (11) UNSIGNED NOT NULL UNIQUE,
+id int (12) UNSIGNED NOT NULL UNIQUE,
 username varchar(255) NOT NULL,
 firstname varchar(255) CHARACTER SET utf8,
 lastname varchar(255) CHARACTER SET utf8,
