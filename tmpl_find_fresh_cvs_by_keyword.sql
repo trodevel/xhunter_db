@@ -10,4 +10,4 @@ JOIN
 ON m.id = c.id
 WHERE m.keyword = '%KEYWORD%'
 AND
-    age_mm <= 30;
+    age_mm <= '%AGE_MM%';
