@@ -33,3 +33,6 @@ inc/
 /MANIFEST.bak
 /pm_to_blib
 /*.zip
+
+db_config.local.ini
+db_config.ini
