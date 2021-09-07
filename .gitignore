@@ -34,5 +34,5 @@ inc/
 /pm_to_blib
 /*.zip
 
-db_config.local.txt
-db_config.txt
+db_config.local.ini
+db_config.ini
