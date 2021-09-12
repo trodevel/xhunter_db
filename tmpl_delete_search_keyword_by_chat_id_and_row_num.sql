@@ -2,7 +2,9 @@ USE xhunter;
 
 SET @row_number = 0;
 
-SELECT *
+SET @keyword = (
+
+SELECT keyword
 FROM
     (
     SELECT
@@ -15,4 +17,6 @@ FROM
     ) AS with_num
 WHERE
         num = '%ROW_NUM%'
-;
+);
+
+SELECT @keyword;
