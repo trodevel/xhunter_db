@@ -1,6 +1,6 @@
 USE xhunter;
 
-SELECT c.id, hash, subject, experience, modified_ts, age_mm
+SELECT DISTINCT( c.id ), hash, subject, experience, modified_ts, age_mm
 FROM map_keyword_to_cv AS m
 JOIN
 (
