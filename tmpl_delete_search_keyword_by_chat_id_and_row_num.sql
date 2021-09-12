@@ -23,6 +23,12 @@ SELECT @keyword;
 
 SELECT IF( @keyword IS NULL, "it is null", "OK");
 
-#DELETE
-#FROM
-#    search_keyword
+DELETE
+FROM
+    search_keywords
+WHERE
+    chat_id = '%CHAT_ID%'
+    AND
+    keyword = @keyword
+    AND
+    @keyword IS NOT NULL;
