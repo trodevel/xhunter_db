@@ -20,3 +20,9 @@ WHERE
 );
 
 SELECT @keyword;
+
+SELECT IF( @keyword IS NULL, "it is null", "OK");
+
+#DELETE
+#FROM
+#    search_keyword
