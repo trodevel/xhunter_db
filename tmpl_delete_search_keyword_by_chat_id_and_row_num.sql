@@ -19,9 +19,7 @@ WHERE
         num = '%ROW_NUM%'
 );
 
-SELECT @keyword;
-
-SELECT IF( @keyword IS NULL, "it is null", "OK");
+SELECT IF( @keyword IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyword );
 
 DELETE
 FROM
