@@ -1,6 +1,6 @@
 USE xhunter;
 
-CREATE TABLE users(
+CREATE TABLE IF NOT EXISTS users(
 id int (12) UNSIGNED NOT NULL UNIQUE,
 username varchar(255) NOT NULL,
 firstname varchar(255) CHARACTER SET utf8,

@@ -1,6 +1,6 @@
 USE xhunter;
 
-CREATE TABLE search_keywords(
+CREATE TABLE IF NOT EXISTS search_keywords(
 id INT AUTO_INCREMENT PRIMARY KEY,
 chat_id int (12) UNSIGNED NOT NULL,
 keyword varchar(255) CHARACTER SET utf8 NOT NULL,
