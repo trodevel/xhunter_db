@@ -1,4 +1,5 @@
 USE xhunter;
+<<<<<<< HEAD
 
 SET autocommit = OFF;
 
@@ -25,3 +26,7 @@ values ( '%CHAT_ID%', @query_id );
 SELECT '%CHAT_ID%', @query_id;
 
 COMMIT;
+=======
+insert IGNORE into search_keywords ( chat_id, keyword, experience_from, experience_to )
+values ( '%CHAT_ID%', '%KEYWORD%', '%EXPERIENCE_FROM%', '%EXPERIENCE_TO%' );
+>>>>>>> 1ced42035a554f580df281f37ee86aba0ce62ece
