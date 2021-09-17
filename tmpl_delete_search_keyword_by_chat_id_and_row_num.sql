@@ -1,5 +1,9 @@
 USE xhunter;
 
+SET autocommit = OFF;
+
+START TRANSACTION;
+
 SET @row_number = 0;
 
 SET @query_id = (
@@ -68,3 +72,5 @@ WHERE
     id = @query_id
     AND
     @query_id IS NOT NULL;
+
+COMMIT;
