@@ -1,5 +1,9 @@
 USE xhunter;
 
+SET autocommit = OFF;
+
+START TRANSACTION;
+
 SELECT DISTINCT( c.id ), hash, subject, experience, modified_ts, age_mm
 FROM map_keyword_to_cv AS m
 JOIN
@@ -11,3 +15,5 @@ ON m.id = c.id
 WHERE m.keyword = '%KEYWORD%'
 AND
     age_mm <= '%AGE_MM%';
+
+COMMIT;
