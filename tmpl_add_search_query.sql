@@ -24,7 +24,7 @@ FROM
 WHERE
     @query_id IS NULL;
 
-SET @query_id =
+SET @new_query_id =
 (
     SELECT id
     FROM search_queries
@@ -36,9 +36,21 @@ SET @query_id =
         experience_to = '%EXPERIENCE_TO%'
 );
 
-insert IGNORE into map_chat_id_to_query_id ( chat_id, query_id )
-values ( '%CHAT_ID%', @query_id );
+SET @num_mappings =
+(
+SELECT
+    COUNT(*)
+FROM
+    map_chat_id_to_query_id
+WHERE
+    chat_id = '%CHAT_ID%'
+    AND
+    query_id = @new_query_id
+);
 
-SELECT '%CHAT_ID%', @query_id;
+insert IGNORE into map_chat_id_to_query_id ( chat_id, query_id )
+values ( '%CHAT_ID%', @new_query_id );
+
+SELECT '%CHAT_ID%', @new_query_id;
 
 COMMIT;
