@@ -22,7 +22,10 @@ JOIN
     FROM cvs
 ) AS c
 ON m.id = c.id
-WHERE m.keyword = @keyword
+WHERE
+    m.keyword = @keyword
+AND
+    @keyword IS NOT NULL
 AND
     age_mm <= '%AGE_MM%';
 
