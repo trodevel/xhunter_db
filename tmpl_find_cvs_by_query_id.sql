@@ -16,7 +16,7 @@ WHERE
 
 #SELECT IF( @keyword IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyword );
 
-SELECT c.id, hash, subject, experience, modified_ts
+SELECT DISTINCT ( c.id ), hash, subject, experience, modified_ts
 FROM
     map_keyword_to_cv AS m
 JOIN
