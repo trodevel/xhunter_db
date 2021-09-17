@@ -48,8 +48,13 @@ WHERE
     query_id = @new_query_id
 );
 
-insert IGNORE into map_chat_id_to_query_id ( chat_id, query_id )
-values ( '%CHAT_ID%', @new_query_id );
+insert into map_chat_id_to_query_id ( chat_id, query_id )
+SELECT
+    '%CHAT_ID%', @new_query_id
+FROM
+    DUAL
+WHERE
+    @num_mappings = 0;
 
 SELECT '%CHAT_ID%', @new_query_id;
 
