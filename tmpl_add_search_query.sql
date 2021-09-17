@@ -22,7 +22,7 @@ SELECT
 FROM
     DUAL
 WHERE
-    @query_id IS NOT NULL;
+    @query_id IS NULL;
 
 SET @query_id =
 (
