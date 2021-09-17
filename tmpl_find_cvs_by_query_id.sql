@@ -14,7 +14,25 @@ WHERE
     id = '%QUERY_ID%'
 );
 
-#SELECT IF( @keyword IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyword );
+SET @p2=(
+
+SELECT
+    experience_from * 12
+FROM
+    search_queries
+WHERE
+    id = '%QUERY_ID%'
+);
+
+SET @p3=(
+
+SELECT
+    experience_to * 12
+FROM
+    search_queries
+WHERE
+    id = '%QUERY_ID%'
+);
 
 SELECT DISTINCT ( c.id ), hash, subject, experience, modified_ts
 FROM
@@ -24,8 +42,11 @@ JOIN
 ON
     m.id = c.id
 WHERE
-    m.keyword = @keyword
+    m.keyword = @keyword AND @keyword IS NOT NULL
     AND
-    @keyword IS NOT NULL;
+    c.experience >= @p2 AND @p2 IS NOT NULL
+    AND
+    c.experience <= @p3 AND @p3 IS NOT NULL
+;
 
 COMMIT;
