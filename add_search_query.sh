@@ -2,9 +2,9 @@
 
 #<hb>#############################################################################
 #
-# add_search_keyword.sh CHAT_ID KEYWORD EXP_FROM EXP_TO
+# add_search_query.sh CHAT_ID KEYWORD EXP_FROM EXP_TO
 #
-# Example: ./add_search_keyword.sh 12345 react 1 5
+# Example: ./add_search_query.sh 12345 react 1 5
 #
 #<he>#############################################################################
 
@@ -24,7 +24,7 @@ EXP_TO=$4
 [[ -z "$EXP_FROM" ]] && echo "ERROR: need EXP_FROM" && print_help && exit 1
 [[ -z "$EXP_TO" ]]   && echo "ERROR: need EXP_TO" && print_help && exit 1
 
-query=$( cat tmpl_add_search_keyword.sql | sed "s/%CHAT_ID%/$CHAT_ID/g" | sed "s/%KEYWORD%/$KEYWORD/g" \
+query=$( cat tmpl_add_search_query.sql | sed "s/%CHAT_ID%/$CHAT_ID/g" | sed "s/%KEYWORD%/$KEYWORD/g" \
         | sed "s/%EXPERIENCE_FROM%/$EXP_FROM/g" \
         | sed "s/%EXPERIENCE_TO%/$EXP_TO/g" \
     )
