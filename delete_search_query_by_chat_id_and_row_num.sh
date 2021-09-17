@@ -2,9 +2,9 @@
 
 #<hb>#############################################################################
 #
-# delete_search_keyword_by_chat_id_and_row_num.sh CHAT_ID ROW_NUM
+# delete_search_query_by_chat_id_and_row_num.sh CHAT_ID ROW_NUM
 #
-# Example: ./delete_search_keyword_by_chat_id_and_row_num.sh 12345 3
+# Example: ./delete_search_query_by_chat_id_and_row_num.sh 12345 3
 #
 #<he>#############################################################################
 
@@ -19,6 +19,6 @@ ROW_NUM=$2
 [[ -z "$CHAT_ID" ]] && echo "ERROR: need CHAT_ID" && print_help && exit 1
 [[ -z "$ROW_NUM" ]] && echo "ERROR: need ROW_NUM" && print_help && exit 1
 
-query=$( cat tmpl_delete_search_keyword_by_chat_id_and_row_num.sql | sed "s/%CHAT_ID%/$CHAT_ID/g" | sed "s/%ROW_NUM%/$ROW_NUM/g" )
+query=$( cat tmpl_delete_search_query_by_chat_id_and_row_num.sql | sed "s/%CHAT_ID%/$CHAT_ID/g" | sed "s/%ROW_NUM%/$ROW_NUM/g" )
 
 echo "$query" | ./exec_query.sh
