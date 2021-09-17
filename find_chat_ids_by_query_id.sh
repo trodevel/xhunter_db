@@ -4,7 +4,7 @@
 #
 # find_chat_ids_by_query_id.sh QUERY_ID
 #
-# Example: ./find_chat_ids_by_query_id.sh react
+# Example: ./find_chat_ids_by_query_id.sh 12345
 #
 #<he>#############################################################################
 
