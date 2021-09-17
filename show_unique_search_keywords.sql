@@ -1,3 +1,3 @@
 USE xhunter;
 
-SELECT DISTINCT keyword FROM search_keywords;
+SELECT DISTINCT keyword FROM search_queries;

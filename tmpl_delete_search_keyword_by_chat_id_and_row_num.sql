@@ -11,7 +11,7 @@ FROM
         (@row_number:=@row_number + 1) AS num,
         keyword
     FROM
-        search_keywords
+        search_queries
     WHERE
         chat_id = '%CHAT_ID%'
     ) AS with_num
@@ -23,7 +23,7 @@ SELECT IF( @keyword IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyw
 
 DELETE
 FROM
-    search_keywords
+    search_queries
 WHERE
     chat_id = '%CHAT_ID%'
     AND

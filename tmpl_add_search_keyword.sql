@@ -4,13 +4,13 @@ SET autocommit = OFF;
 
 START TRANSACTION;
 
-insert IGNORE into search_keywords ( keyword, experience_from, experience_to )
+insert IGNORE into search_queries ( keyword, experience_from, experience_to )
 values ( '%KEYWORD%', '%EXPERIENCE_FROM%', '%EXPERIENCE_TO%' );
 
 SET @query_id =
 (
     SELECT id
-    FROM search_keywords
+    FROM search_queries
     WHERE
         keyword = '%KEYWORD%'
     AND

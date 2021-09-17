@@ -1,3 +1,3 @@
 USE xhunter;
 
-SELECT * FROM search_keywords;
+SELECT * FROM search_queries;

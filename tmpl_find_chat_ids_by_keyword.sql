@@ -3,6 +3,6 @@ USE xhunter;
 SELECT
     chat_id
 FROM
-    search_keywords
+    search_queries
 WHERE
     keyword = '%KEYWORD%';
