@@ -40,6 +40,6 @@ DELETE
 FROM
     search_queries
 WHERE
-    query_id = @query_id
+    id = @query_id
     AND
     @query_id IS NOT NULL;
