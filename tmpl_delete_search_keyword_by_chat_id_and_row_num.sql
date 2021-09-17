@@ -34,7 +34,32 @@ WHERE
     @query_id IS NOT NULL
 );
 
-SELECT IF( @query_id IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyword );
+SET @f2 = (
+SELECT
+    experience_from
+FROM
+    search_queries
+WHERE
+    id = @query_id
+    AND
+    @query_id IS NOT NULL
+);
+
+SET @f3 = (
+SELECT
+    experience_to
+FROM
+    search_queries
+WHERE
+    id = @query_id
+    AND
+    @query_id IS NOT NULL
+);
+
+SELECT IF( @query_id IS NULL, 0, 1), '%ROW_NUM%',
+    IF( @keyword IS NULL, '', @keyword ),
+    IF( @f2 IS NULL, '', @f2 ),
+    IF( @f3 IS NULL, '', @f3 );
 
 DELETE
 FROM
