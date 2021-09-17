@@ -17,7 +17,7 @@ WHERE
 SET @p2=(
 
 SELECT
-    experience_from
+    experience_from * 12
 FROM
     search_queries
 WHERE
@@ -27,7 +27,7 @@ WHERE
 SET @p3=(
 
 SELECT
-    experience_from
+    experience_to * 12
 FROM
     search_queries
 WHERE
@@ -42,8 +42,11 @@ JOIN
 ON
     m.id = c.id
 WHERE
-    m.keyword = @keyword
+    m.keyword = @keyword AND @keyword IS NOT NULL
     AND
-    @keyword IS NOT NULL;
+    c.experience >= @p2 AND @p2 IS NOT NULL
+    AND
+    c.experience <= @p3 AND @p3 IS NOT NULL
+;
 
 COMMIT;
