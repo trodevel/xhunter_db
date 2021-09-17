@@ -14,7 +14,25 @@ WHERE
     id = '%QUERY_ID%'
 );
 
-#SELECT IF( @keyword IS NULL, 0, 1), '%ROW_NUM%', IF( @keyword IS NULL, '', @keyword );
+SET @p2=(
+
+SELECT
+    experience_from
+FROM
+    search_queries
+WHERE
+    id = '%QUERY_ID%'
+);
+
+SET @p3=(
+
+SELECT
+    experience_from
+FROM
+    search_queries
+WHERE
+    id = '%QUERY_ID%'
+);
 
 SELECT DISTINCT ( c.id ), hash, subject, experience, modified_ts
 FROM
