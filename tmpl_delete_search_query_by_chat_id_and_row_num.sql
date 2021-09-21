@@ -67,9 +67,11 @@ SELECT IF( @query_id IS NULL, 0, 1), '%ROW_NUM%',
 
 DELETE
 FROM
-    search_queries
+    map_chat_id_to_query_id
 WHERE
-    id = @query_id
+    chat_id = '%CHAT_ID%'
+    AND
+    query_id = @query_id
     AND
     @query_id IS NOT NULL;
 
