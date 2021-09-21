@@ -69,6 +69,8 @@ DELETE
 FROM
     map_chat_id_to_query_id
 WHERE
+    chat_id = '%CHAT_ID%'
+    AND
     query_id = @query_id
     AND
     @query_id IS NOT NULL;
