@@ -31,6 +31,10 @@ TEMP_FL=xhunter.sql
 
 mysqldump --defaults-extra-file=$CONFIG --databases xhunter > $TEMP_FL
 
+err=$?
+
+[[ $err -ne 0 ]] && echo "ERROR: cannot dump data base" && exit $err
+
 tar czf $FL $TEMP_FL
 
 err=$?
