@@ -42,3 +42,5 @@ err=$?
 [[ $err -ne 0 ]] && echo "ERROR: cannot create archive $FL" && exit $err
 
 echo "INFO: backup database to $FL - done"
+
+rm $TEMP_FL
