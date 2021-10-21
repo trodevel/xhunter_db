@@ -13,8 +13,8 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-( 1, foreign_id, @epoch, experience, subject )
-set modified_ts = FROM_UNIXTIME( @epoch / 1000 );
+( foreign_id, @epoch, experience, subject )
+set modified_ts = FROM_UNIXTIME( @epoch / 1000 ), source_id = 1;
 
 SELECT COUNT(*) FROM cvs_temp t1
 WHERE NOT EXISTS
