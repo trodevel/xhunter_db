@@ -20,7 +20,7 @@ KEYWORD=$2
 [[ -z "$FILENAME" ]] && echo "ERROR: need FILENAME" && print_help && exit 1
 [[ -z "$KEYWORD" ]] && echo "ERROR: need KEYWORD" && print_help && exit 1
 
-query=$( cat tmpl_import_cvs.sql | sed "s/%FILENAME%/$FILENAME/g" | sed "s/%KEYWORD%/$KEYWORD/g" )
+query=$( cat tmpl_import_cvs.sql | sed "s~%FILENAME%~$FILENAME~g" | sed "s/%KEYWORD%/$KEYWORD/g" )
 
 set -o noglob
 echo "$query" | ./exec_query.sh
