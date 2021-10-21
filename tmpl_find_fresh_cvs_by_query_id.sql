@@ -34,11 +34,11 @@ WHERE
     id = '%QUERY_ID%'
 );
 
-SELECT DISTINCT( c.id ), source_key, subject, experience, modified_ts, age_mm
+SELECT DISTINCT( c.id ), foreign_id, subject, experience, modified_ts, age_mm
 FROM map_keyword_to_cv AS m
 JOIN
 (
-    SELECT id, source_key, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, NOW() ) AS age_mm
+    SELECT id, foreign_id, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, NOW() ) AS age_mm
     FROM cvs
 ) AS c
 ON m.id = c.id
