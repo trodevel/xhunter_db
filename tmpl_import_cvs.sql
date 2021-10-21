@@ -16,14 +16,24 @@ LINES TERMINATED BY '\n'
 ( foreign_id, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 );
 
-INSERT INTO cvs SELECT * FROM cvs_temp t1
+SELECT COUNT(*) FROM cvs_temp t1
 WHERE NOT EXISTS
 (
       SELECT 1
       FROM cvs t2 WHERE
-      t2.id = t1.id
+      t2.foreign_id = t1.foreign_id
+      AND
+      t2.source_id = 1
 );
 
-INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
+#INSERT INTO cvs SELECT * FROM cvs_temp t1
+#WHERE NOT EXISTS
+#(
+#      SELECT 1
+#      FROM cvs t2 WHERE
+#      t2.id = t1.id
+#);
+
+#INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
 
 COMMIT;
