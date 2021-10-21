@@ -8,5 +8,5 @@ recv_ts TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
 modified_ts DATETIME(3),
 subject varchar(255) CHARACTER SET utf8 NOT NULL,
 experience int (11) UNSIGNED DEFAULT 0,
-PRIMARY KEY (id)
+UNIQUE KEY uniq_rec ( source_id, source_key )
 );
