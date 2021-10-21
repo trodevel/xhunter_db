@@ -26,8 +26,9 @@ WHERE NOT EXISTS
       t2.source_id = t1.source_id
 );
 
-INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1
-WHERE NOT EXISTS
+# delete records from the temp table which already present in the main table
+DELETE FROM cvs_temp t1
+WHERE EXISTS
 (
       SELECT 1
       FROM cvs t2 WHERE
@@ -35,6 +36,11 @@ WHERE NOT EXISTS
       AND
       t2.source_id = t1.source_id
 );
+
+# DEBUG
+SELECT 'DEBUG', COUNT(*) FROM cvs_temp t1;
+
+INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1;
 
 #INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
 
