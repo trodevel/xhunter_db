@@ -26,13 +26,15 @@ WHERE NOT EXISTS
       t2.source_id = t1.source_id
 );
 
-#INSERT INTO cvs SELECT * FROM cvs_temp t1
-#WHERE NOT EXISTS
-#(
-#      SELECT 1
-#      FROM cvs t2 WHERE
-#      t2.id = t1.id
-#);
+INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1
+WHERE NOT EXISTS
+(
+      SELECT 1
+      FROM cvs t2 WHERE
+      t2.foreign_id = t1.foreign_id
+      AND
+      t2.source_id = t1.source_id
+);
 
 #INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
 
