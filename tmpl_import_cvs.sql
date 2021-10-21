@@ -13,7 +13,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-( foreign_id, @epoch, experience, subject )
+( 1, foreign_id, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 );
 
 SELECT COUNT(*) FROM cvs_temp t1
@@ -23,7 +23,7 @@ WHERE NOT EXISTS
       FROM cvs t2 WHERE
       t2.foreign_id = t1.foreign_id
       AND
-      t2.source_id = 1
+      t2.source_id = t1.source_id
 );
 
 #INSERT INTO cvs SELECT * FROM cvs_temp t1
