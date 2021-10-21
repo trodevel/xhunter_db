@@ -13,7 +13,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-( id, foreign_id, @epoch, experience, subject )
+( foreign_id, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 );
 
 INSERT INTO cvs SELECT * FROM cvs_temp t1
