@@ -3,7 +3,7 @@ USE xhunter;
 CREATE TABLE IF NOT EXISTS cvs(
 id INT AUTO_INCREMENT PRIMARY KEY,
 source INT NOT NULL,
-hash varchar(255) NOT NULL,
+source_key varchar(255) NOT NULL,
 recv_ts TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
 modified_ts DATETIME(3),
 subject varchar(255) CHARACTER SET utf8 NOT NULL,
