@@ -36,11 +36,11 @@ WHERE
 
 #SELECT 'DEBUG: keyword', @keyword, 'p2', @p2, 'p3', @p3;
 
-SELECT DISTINCT( c.id ), foreign_id, subject, experience, modified_ts, age_mm
+SELECT DISTINCT( c.id ), source_id, foreign_id, subject, experience, modified_ts, age_mm
 FROM map_keyword_to_cv AS m
 JOIN
 (
-    SELECT id, foreign_id, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, NOW() ) AS age_mm
+    SELECT id, source_id, foreign_id, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, NOW() ) AS age_mm
     FROM cvs
 ) AS c
 ON m.id = c.id
