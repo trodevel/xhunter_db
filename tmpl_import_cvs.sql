@@ -61,6 +61,17 @@ SELECT 'DEBUG: new size of tmp table', COUNT(*) FROM cvs_temp t1;
 
 INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1;
 
-#INSERT INTO map_keyword_to_cv ( keyword, id ) SELECT '%KEYWORD%', id FROM cvs_temp;
+INSERT INTO map_keyword_to_cv ( keyword, id )
+SELECT '%KEYWORD%', id
+FROM
+(
+    SELECT t1.id
+    FROM cvs_temp t2
+    JOIN cvs t1
+    ON
+        t2.foreign_id = t1.foreign_id
+        AND
+        t2.source_id = t1.source_id
+) AS p;
 
 COMMIT;
