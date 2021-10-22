@@ -28,11 +28,17 @@ WHERE NOT EXISTS
       t2.source_id = t1.source_id
 );
 
-SELECT 'DEBUG: current size of tmp table', COUNT(*) FROM cvs_temp t1;
+SELECT 'DEBUG: current size of tmp table:', COUNT(*) FROM cvs_temp t1;
 
-SELECT 'DEBUG: existing records';
+SELECT 'DEBUG: existing records:', COUNT(*)
+FROM cvs_temp t2
+JOIN cvs t1
+ON
+    t2.foreign_id = t1.foreign_id
+    AND
+    t2.source_id = t1.source_id;
 
-        SELECT 'DEBUG:', t2.id
+        SELECT 'DEBUG: id', t2.id
         FROM cvs_temp t2
         JOIN cvs t1
         ON
