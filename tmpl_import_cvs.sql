@@ -16,6 +16,8 @@ LINES TERMINATED BY '\n'
 ( foreign_id, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 ), source_id = 1;
 
+SELECT 'DEBUG:', id, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp;
+
 SELECT COUNT(*) FROM cvs_temp t1
 WHERE NOT EXISTS
 (
