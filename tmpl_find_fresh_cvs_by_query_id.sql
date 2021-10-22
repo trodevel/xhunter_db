@@ -34,6 +34,8 @@ WHERE
     id = '%QUERY_ID%'
 );
 
+#SELECT 'DEBUG: keyword', @keyword, 'p2', @p2, 'p3', @p3;
+
 SELECT DISTINCT( c.id ), foreign_id, subject, experience, modified_ts, age_mm
 FROM map_keyword_to_cv AS m
 JOIN
