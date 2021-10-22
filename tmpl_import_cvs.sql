@@ -26,19 +26,38 @@ WHERE NOT EXISTS
       t2.source_id = t1.source_id
 );
 
+SELECT 'DEBUG: current size of tmp table', COUNT(*) FROM cvs_temp t1;
+
+SELECT 'DEBUG: existing records';
+
+        SELECT 'DEBUG:', t2.id
+        FROM cvs_temp t2
+        JOIN cvs t1
+        ON
+            t2.foreign_id = t1.foreign_id
+            AND
+            t2.source_id = t1.source_id;
+
 # delete records from the temp table which already present in the main table
-DELETE FROM cvs_temp t1
-WHERE EXISTS
+DELETE FROM cvs_temp
+WHERE id
+IN
 (
-      SELECT 1
-      FROM cvs t2 WHERE
-      t2.foreign_id = t1.foreign_id
-      AND
-      t2.source_id = t1.source_id
+    SELECT *
+    FROM
+    (
+        SELECT t2.id
+        FROM cvs_temp t2
+        JOIN cvs t1
+        ON
+            t2.foreign_id = t1.foreign_id
+            AND
+            t2.source_id = t1.source_id
+    ) AS p
 );
 
 # DEBUG
-SELECT 'DEBUG', COUNT(*) FROM cvs_temp t1;
+SELECT 'DEBUG: new size of tmp table', COUNT(*) FROM cvs_temp t1;
 
 INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1;
 
