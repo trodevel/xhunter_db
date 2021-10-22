@@ -13,7 +13,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-( foreign_id, @epoch, experience, subject )
+( @dummy, foreign_id, @epoch, experience, subject )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 ), source_id = 1;
 
 SELECT 'DEBUG:', id, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp;
