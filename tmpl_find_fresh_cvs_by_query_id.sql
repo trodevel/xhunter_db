@@ -40,7 +40,7 @@ SELECT DISTINCT( c.id ), source_id, foreign_id, subject, experience, modified_ts
 FROM map_keyword_to_cv AS m
 JOIN
 (
-    SELECT id, source_id, foreign_id, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, NOW() ) AS age_mm
+    SELECT id, source_id, foreign_id, subject, experience, modified_ts, TIMESTAMPDIFF( MINUTE, modified_ts, CONVERT_TZ( NOW(),'SYSTEM','+00:00') ) AS age_mm
     FROM cvs
 ) AS c
 ON m.id = c.id
