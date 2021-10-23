@@ -34,7 +34,7 @@ WHERE
     id = '%QUERY_ID%'
 );
 
-SELECT DISTINCT ( c.id ), hash, subject, experience, modified_ts
+SELECT DISTINCT ( c.id ), foreign_id, subject, experience, modified_ts
 FROM
     map_keyword_to_cv AS m
 JOIN
