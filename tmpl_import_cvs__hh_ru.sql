@@ -8,6 +8,8 @@ TRUNCATE cvs_temp;
 
 SET @KEYWORD = '%KEYWORD%';
 
+SET time_zone = '+00:00';
+
 LOAD DATA LOCAL INFILE
 '%FILENAME%'
 INTO TABLE cvs_temp
