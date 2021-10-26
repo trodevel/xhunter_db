@@ -36,3 +36,5 @@ inc/
 
 db_config.local.ini
 db_config.ini
+
+test/sample_cvs_habr_ru__testtest.csv
