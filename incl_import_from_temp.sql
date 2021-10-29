@@ -58,6 +58,8 @@ SET @existing_cvs =
     ) AS p
 );
 
+SELECT @num_cvs, @existing_cvs, @new_cvs;
+
 # update keyword-to-cv mapping for existing CVs
 INSERT INTO map_keyword_to_cv ( keyword, id )
 SELECT @KEYWORD, id
