@@ -34,6 +34,17 @@ WHERE NOT EXISTS
 #    AND
 #    t2.source_id = t1.source_id;
 
+SELECT 'DEBUG: num existing CVs', COUNT(*)
+FROM
+(
+    SELECT t2.id
+    FROM cvs_temp t2
+    JOIN cvs t1
+    ON
+        t2.foreign_id = t1.foreign_id
+        AND
+        t2.source_id = t1.source_id
+) AS p;
 
 # update keyword-to-cv mapping for existing CVs
 INSERT INTO map_keyword_to_cv ( keyword, id )
