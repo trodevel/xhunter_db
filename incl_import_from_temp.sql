@@ -58,6 +58,31 @@ SET @existing_cvs =
     ) AS p
 );
 
+#SET @existing_mappings =
+#(
+#    SELECT COUNT(*) FROM cvs_temp t1
+#    WHERE NOT EXISTS
+#    (
+        SELECT 'DEBUG: existing mapping:', p.id, keyword
+        FROM
+        (
+            SELECT t1.id
+            FROM cvs_temp t2
+            JOIN cvs t1
+            ON
+                t2.foreign_id = t1.foreign_id
+                AND
+                t2.source_id = t1.source_id
+        ) AS p
+        JOIN map_keyword_to_cv m
+        ON
+            p.id = m.id
+            AND
+            @KEYWORD = m.keyword
+      ;
+#    )
+#);
+
 SELECT @num_cvs, @existing_cvs, @new_cvs;
 
 # update keyword-to-cv mapping for existing CVs
