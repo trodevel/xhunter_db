@@ -3,14 +3,17 @@
 # DEBUG
 #SELECT 'DEBUG:', id, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp;
 
-SELECT COUNT(*) FROM cvs_temp t1
-WHERE NOT EXISTS
+SET @new_cvs =
 (
-      SELECT 1
-      FROM cvs t2 WHERE
-      t2.foreign_id = t1.foreign_id
-      AND
-      t2.source_id = t1.source_id
+    SELECT COUNT(*) FROM cvs_temp t1
+    WHERE NOT EXISTS
+    (
+        SELECT 1
+        FROM cvs t2 WHERE
+        t2.foreign_id = t1.foreign_id
+        AND
+        t2.source_id = t1.source_id
+    )
 );
 
 # DEBUG
@@ -34,17 +37,20 @@ WHERE NOT EXISTS
 #    AND
 #    t2.source_id = t1.source_id;
 
-SELECT 'DEBUG: num existing CVs', COUNT(*)
-FROM
+SET @existing_cvs =
 (
-    SELECT t2.id
-    FROM cvs_temp t2
-    JOIN cvs t1
-    ON
-        t2.foreign_id = t1.foreign_id
-        AND
-        t2.source_id = t1.source_id
-) AS p;
+    SELECT COUNT(*)
+    FROM
+    (
+        SELECT t2.id
+        FROM cvs_temp t2
+        JOIN cvs t1
+        ON
+            t2.foreign_id = t1.foreign_id
+            AND
+            t2.source_id = t1.source_id
+    ) AS p
+);
 
 # update keyword-to-cv mapping for existing CVs
 INSERT INTO map_keyword_to_cv ( keyword, id )
