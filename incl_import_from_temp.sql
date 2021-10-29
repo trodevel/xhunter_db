@@ -63,7 +63,7 @@ SET @existing_cvs =
 #    SELECT COUNT(*) FROM cvs_temp t1
 #    WHERE NOT EXISTS
 #    (
-        SELECT 'DEBUG: existing mapping:', p.id, keyword
+        SELECT 'DEBUG: existing mapping:', keyword, p.id
         FROM
         (
             SELECT t1.id
