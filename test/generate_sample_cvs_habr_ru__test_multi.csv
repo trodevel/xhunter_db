@@ -1,0 +1,5 @@
+#!/bin/bash
+
+EPOCH=$( date +%s )
+
+cat tmpl_sample_cvs_habr_ru__test_multi.csv | sed "s/%EPOCH%/$EPOCH/g" > sample_cvs_habr_ru__test_multi.csv
