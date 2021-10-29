@@ -3,6 +3,12 @@
 # DEBUG
 #SELECT 'DEBUG:', id, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp;
 
+SET @num_cvs =
+(
+    SELECT COUNT(*)
+    FROM cvs_temp
+);
+
 SET @new_cvs =
 (
     SELECT COUNT(*) FROM cvs_temp t1
