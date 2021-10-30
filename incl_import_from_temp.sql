@@ -106,7 +106,7 @@ SET @new_mappings =
         )
 );
 
-SELECT 'num CVs:', @num_cvs, 'existing CVs:', @existing_cvs, 'new CVs:', @new_cvs, 'existing mappings:', @existing_mappings, 'new mappings:', @new_mappings;
+SELECT 'num CVs:', @num_cvs, 'existing CVs:', @existing_cvs, 'new CVs:', @new_cvs, 'existing mappings:', @existing_mappings, 'new mappings for existing CVs:', @new_mappings;
 
 # update keyword-to-cv mapping for existing CVs
 INSERT INTO map_keyword_to_cv ( keyword, id )
