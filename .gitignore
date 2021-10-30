@@ -39,3 +39,4 @@ db_config.ini
 
 test/sample_cvs_habr_ru__testtest.csv
 test/sample_cvs_hh_ru__testtest.csv
+test/sample_cvs_habr_ru__test_multi_*.csv
