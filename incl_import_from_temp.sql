@@ -136,7 +136,7 @@ FROM
         WHERE
             keyword = @KEYWORD
         )
-);
+) AS nm;
 
 # delete records from the temp table which already present in the main table
 DELETE FROM cvs_temp
