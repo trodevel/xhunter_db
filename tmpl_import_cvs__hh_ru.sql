@@ -17,7 +17,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ';'
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-( @dummy, foreign_id, @epoch, experience, subject )
+( @dummy, foreign_id, @epoch, experience, subject, last_position, last_company, last_experience )
 set modified_ts = FROM_UNIXTIME( @epoch / 1000 ), source_id = 1;
 
 SOURCE incl_import_from_temp.sql

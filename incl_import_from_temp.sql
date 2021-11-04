@@ -159,7 +159,7 @@ IN
 # DEBUG
 #SELECT 'DEBUG: new size of tmp table', COUNT(*) FROM cvs_temp t1;
 
-INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience FROM cvs_temp t1;
+INSERT INTO cvs SELECT NULL, source_id, foreign_id, recv_ts, modified_ts, subject, experience, last_position, last_company, last_experience FROM cvs_temp t1;
 
 INSERT INTO map_keyword_to_cv ( keyword, id )
 SELECT @KEYWORD, id

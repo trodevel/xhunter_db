@@ -1,3 +1,3 @@
-"test_habr_ru_multi_1";"Max Mustermann";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python"
-"test_habr_ru_multi_2";"John Doe";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python"
-"test_habr_ru_multi_3";"Erika Mustermann";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python"
+"test_habr_ru_multi_1";"Max Mustermann";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python";"Developer";"Mega Company";33
+"test_habr_ru_multi_2";"John Doe";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python";"Entwickler";"Super Company";55
+"test_habr_ru_multi_3";"Erika Mustermann";%EPOCH%;"";"Junior";50000;"rur";27;21;"React,Python";"Developer";"Puper Company";77
